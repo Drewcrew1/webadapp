@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using webad_source.Models;
-
+using webad_source.Models.Accounts;
 namespace webad_source.Controllers
 {
     public class AccountsController : Controller
@@ -18,20 +18,16 @@ namespace webad_source.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+
+        public async Task<IActionResult> Signup()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        public async Task<IActionResult> Signup(SignupModel model)
         {
             return View();
         }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+    
     }
 }
